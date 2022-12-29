@@ -12,7 +12,7 @@ def get_sequence_of_numbers(number_of_numbers, number_from, number_to):
         sequence.append(int(get_random_number(number_from, number_to)))
     return sequence
 
-def click_button_1():
+def timer():
     number_of_numbers = int(entry_1.get())
     number_from = int(entry_2.get())
     number_to = int(entry_3.get()) 
@@ -60,7 +60,7 @@ entry_3 = tk.Entry(fg="black",
 entry_3.grid()
 
 
-button_1=tk.Button(text="Random", command=click_button_1, font=("Arial", 20))
+button_1=tk.Button(text="Random", command=lambda: threading.Thread(target=timer, daemon=True).start(), font=("Arial", 20))
 button_1.grid()
 
 label_4 = tk.Label(fg="black", 
